@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBEDIS — Instrumento de Consulta Jurídica</title>
+<style>
+  :root{
+    --preto:#0a0a0a;
+    --preto-suave:#1c1c1c;
+    --cinza-escuro:#333333;
+    --cinza-medio:#5c5c5c;
+    --cinza-claro:#8a8a8a;
+    --cinza-fundo:#eeeeee;
+    --cinza-fundo-2:#e2e2e2;
+    --branco:#ffffff;
+    --borda:#9c9c9c;
+    --borda-forte:#0a0a0a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Georgia","Times New Roman",serif;
+    background:var(--branco);
+    color:var(--preto);
+    font-size:18px;
+  }
+  header{
+    border-bottom:3px solid var(--preto);
+    padding:30px 36px 22px 36px;
+    background:var(--branco);
+  }
+  header h1{
+    margin:0 0 6px 0;
+    font-size:28px;
+    letter-spacing:0.3px;
+    font-weight:700;
+    color:var(--preto);
+  }
+  header .sub{
+    font-size:15.5px;
+    color:var(--cinza-escuro);
+    font-style:italic;
+    margin-bottom:16px;
+    max-width:900px;
+    line-height:1.55;
+  }
+  .instrumento-tag{
+    display:inline-block;
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    border:1.5px solid var(--preto);
+    color:var(--preto);
+    padding:4px 10px;
+    text-transform:uppercase;
+    margin-right:8px;
+    margin-bottom:6px;
+  }
+  .toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-top:18px;
+  }
+  button{
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    background:var(--preto);
+    color:var(--branco);
+    border:2px solid var(--preto);
+    padding:11px 18px;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  button.secundario{
+    background:var(--branco);
+    color:var(--preto);
+  }
+  button.filtro{
+    background:var(--branco);
+    color:var(--preto);
+    border:1.5px solid var(--preto);
+    padding:7px 13px;
+    font-size:11.5px;
+  }
+  button.filtro.ativo{
+    background:var(--preto);
+    color:var(--branco);
+  }
+  button:hover{ opacity:0.82; }
+  input[type="text"]{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    padding:11px 14px;
+    border:2px solid var(--preto);
+    min-width:280px;
+    flex:1;
+    color:var(--preto);
+  }
+  input[type="text"]::placeholder{ color:var(--cinza-medio); }
+  #status{
+    font-family:Arial, sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--cinza-escuro);
+    margin-top:10px;
+  }
+  .filtros-tema{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px;
+  }
+  main{
+    display:flex;
+    min-height:70vh;
+  }
+  nav#indice{
+    width:290px;
+    border-right:2px solid var(--preto);
+    padding:22px;
+    font-family:Arial, sans-serif;
+    background:var(--cinza-fundo);
+  }
+  nav#indice h2{
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--preto);
+    margin:0 0 14px 0;
+    border-bottom:2px solid var(--preto);
+    padding-bottom:8px;
+  }
+  .eixo-item{
+    display:flex;
+    justify-content:space-between;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--preto-suave);
+    padding:9px 6px;
+    cursor:pointer;
+    border-bottom:1px solid var(--cinza-fundo-2);
+  }
+  .eixo-item:hover{ background:var(--branco); }
+  .eixo-item .n{
+    color:var(--branco);
+    background:var(--preto);
+    padding:1px 8px;
+    font-variant-numeric:tabular-nums;
+    font-size:11.5px;
+  }
+  section#conteudo{
+    flex:1;
+    padding:26px 40px;
+    overflow-y:auto;
+  }
+  .eixo-titulo{
+    font-size:20px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+    color:var(--preto);
+    border-bottom:3px solid var(--preto);
+    padding-bottom:8px;
+    margin:34px 0 16px 0;
+  }
+  .eixo-titulo:first-child{ margin-top:0; }
+  .card{
+    border:1.5px solid var(--borda);
+    padding:16px 18px;
+    margin-bottom:14px;
+    background:var(--branco);
+  }
+  .card:hover{ border-color:var(--preto); }
+  .card-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .card h3{
+    margin:0;
+    font-size:17.5px;
+    font-weight:700;
+    color:var(--preto);
+  }
+  .badge{
+    font-family:Arial, sans-serif;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding:3px 9px;
+    white-space:nowrap;
+    border-radius:2px;
+  }
+  .badge.direito_vigente{ border:1.5px solid var(--preto); color:var(--preto); background:var(--branco); }
+  .badge.jurisprudencia{ border:2px double var(--preto); color:var(--preto); background:var(--branco); }
+  .badge.orientacao_administrativa{ border:1.5px dashed var(--preto); color:var(--preto-suave); background:var(--branco); }
+  .badge.interpretacao_tecnica{ background:var(--preto); color:var(--branco); }
+  .badge.proposta_nao_vigente{ border:1.5px dashed var(--cinza-medio); color:var(--cinza-escuro); font-style:italic; background:var(--branco); }
+  .badge.cronograma_regulatorio{ border:1.5px solid var(--cinza-escuro); color:var(--cinza-escuro); background:var(--branco); }
+  .badge.nao_classificado{ border:1.5px solid var(--cinza-claro); color:var(--cinza-medio); background:var(--branco); }
+  .tag-psa{
+    font-family:Arial, sans-serif;
+    font-size:10px;
+    font-weight:700;
+    background:var(--preto);
+    color:var(--branco);
+    padding:2px 7px;
+    margin-left:6px;
+  }
+  .meta{
+    font-family:Arial, sans-serif;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--cinza-escuro);
+    margin:7px 0 10px 0;
+  }
+  .resumo{
+    font-size:16px;
+    line-height:1.6;
+    color:var(--preto-suave);
+  }
+  .caminho{
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    font-weight:600;
+    color:var(--cinza-medio);
+    margin-top:10px;
+    border-top:1px solid var(--cinza-fundo-2);
+    padding-top:7px;
+  }
+  .vazio{
+    font-family:Arial, sans-serif;
+    color:var(--preto-suave);
+    font-size:14.5px;
+    line-height:1.75;
+    max-width:680px;
+  }
+  .vazio code{
+    background:var(--cinza-fundo);
+    padding:2px 6px;
+    font-size:13px;
+  }
+  footer{
+    border-top:2px solid var(--preto);
+    padding:16px 36px;
+    font-family:Arial, sans-serif;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--cinza-escuro);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .legenda{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    font-weight:600;
+    margin-top:12px;
+    color:var(--preto-suave);
+  }
+  .legenda span{ display:flex; align-items:center; gap:6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="instrumento-tag">Instrumento de Consulta</div>
+  <div class="instrumento-tag">Base Única de Verdade</div>
+  <div class="instrumento-tag">Classificação Automática</div>
+  <h1>Biblioteca Jurídica IBEDIS — CPR Verde / PSA / Carbono</h1>
+  <div class="sub">Estrutura organizada como um instrumento financeiro: lastro normativo, cláusulas estruturais, covenants operacionais, liquidez de mercado, garantias jurisprudenciais e camada CRVE/SBCE separada de CPR Verde e de PSA.</div>
+
+  <div class="toolbar">
+    <button id="btnSelecionar">Selecionar pasta do projeto</button>
+    <button id="btnGithub" class="secundario">Carregar do repositório (GitHub Pages)</button>
+    <button id="btnAtualizar" class="secundario">Atualizar índice</button>
+    <input type="text" id="busca" placeholder="Buscar por título, tema, id, resumo...">
+  </div>
+
+  <div class="filtros-tema">
+    <button class="filtro ativo" data-tema="">Todos</button>
+    <button class="filtro" data-tema="psa|pnpsa|pfpsa|cnpsa|servi&ccedil;os ambientais">PSA</button>
+    <button class="filtro" data-tema="cpr verde|c&eacute;dula de produto rural">CPR Verde</button>
+    <button class="filtro" data-tema="sbce|crve|carbono|itmo">Carbono / SBCE</button>
+    <button class="filtro" data-tema="jurisprud|stj|stf">Jurisprudência</button>
+    <button class="filtro" data-tema="mercado de capitais|token|securit|cra">Mercado de Capitais</button>
+  </div>
+
+  <div class="legenda">
+    <span><span class="badge direito_vigente">vigente</span> direito_vigente</span>
+    <span><span class="badge jurisprudencia">jurisp.</span> jurisprudencia</span>
+    <span><span class="badge orientacao_administrativa">orient.</span> orientacao_administrativa</span>
+    <span><span class="badge interpretacao_tecnica">técnica</span> interpretacao_tecnica</span>
+    <span><span class="badge proposta_nao_vigente">proposta</span> proposta_nao_vigente</span>
+    <span><span class="badge cronograma_regulatorio">cronog.</span> cronograma_regulatorio</span>
+  </div>
+  <div id="status">Verificando fonte de dados...</div>
+  <input type="file" id="inputPasta" webkitdirectory directory multiple style="display:none">
+</header>
+
+<main>
+  <nav id="indice">
+    <h2>Eixos do instrumento</h2>
+    <div id="listaEixos"></div>
+  </nav>
+  <section id="conteudo">
+    <div class="vazio">
+      <p><strong>Como funciona</strong></p>
+      <p>Esta biblioteca lê os arquivos <code>.md</code> do RAG e monta o índice automaticamente, de duas formas possíveis:</p>
+      <p><strong>1. Pasta local:</strong> clique em "Selecionar pasta do projeto". Leitura 100% local no navegador, nada é enviado a servidor algum.</p>
+      <p><strong>2. Repositório publicado:</strong> se este arquivo estiver hospedado no mesmo GitHub/GitLab Pages do RAG (ao lado da pasta <code>00_INDICES/</code>), clique em "Carregar do repositório" para ler <code>00_INDICES/catalogo_documentos_index.json</code> diretamente via <code>fetch</code>, sem precisar selecionar pasta.</p>
+      <p>Cada documento é classificado automaticamente em <code>direito_vigente</code>, <code>jurisprudencia</code>, <code>orientacao_administrativa</code>, <code>interpretacao_tecnica</code>, <code>proposta_nao_vigente</code> ou <code>cronograma_regulatorio</code>, e agrupado por eixo conforme a subpasta de origem (00 a 10). O filtro temático "PSA" acima isola só os documentos de Pagamento por Serviços Ambientais, cruzando automaticamente qualquer <code>.md</code> novo que mencione PSA/PNPSA/PFPSA/CNPSA no título, resumo ou campo <code>temas</code> do front matter.</p>
+      <p><strong>Se você adicionar um novo <code>.md</code> na pasta e clicar em "Atualizar índice"</strong>, ele é lido, classificado e posicionado no eixo e no filtro temático corretos automaticamente.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>IBEDIS · Instituto Brasileiro de Educação e Desenvolvimento em Inovação Sustentável</span>
+  <span id="contador">0 documentos indexados</span>
+</footer>
+
+<script>
+(function(){
+  const EIXOS = [
+    {prefix:"00", nome:"00 · Metadados, Governança e Índices"},
+    {prefix:"01", nome:"01 · Lastro Normativo (Base Legal)"},
+    {prefix:"02", nome:"02 · Cláusulas Estruturais (Estrutura Jurídica)"},
+    {prefix:"03", nome:"03 · Covenants Operacionais (Operação e Registro)"},
+    {prefix:"04", nome:"04 · Lastro Ambiental e MRV"},
+    {prefix:"05", nome:"05 · Liquidez e Mercado de Capitais"},
+    {prefix:"06", nome:"06 · Garantias Jurisprudenciais"},
+    {prefix:"07", nome:"07 · Anexos Territoriais (Estados)"},
+    {prefix:"08", nome:"08 · Fontes Complementares (Publicações)"},
+    {prefix:"09", nome:"09 · Documentos Fornecidos"},
+    {prefix:"10", nome:"10 · Camada CRVE / SBCE (separada de CPR Verde)"},
+    {prefix:"NC", nome:"Não classificados (sem prefixo numérico reconhecido)"},
+  ];
+
+  const TIPO_PARA_CLASSE = [
+    [/^(lei|decreto|medida_provisoria|resolucao_cmn|resolucao_cvm|resolucao_bcb|portaria_interministerial|cpc_|codigo)/i, "direito_vigente"],
+    [/^(jurisprudencia|stj|stf|acordao|resp)/i, "jurisprudencia"],
+    [/^(portaria$|nota_tecnica_administrativa|orientacao|oficio|manual|faq)/i, "orientacao_administrativa"],
+    [/^(parecer|nota_tecnica|metodologia|laudo|interpretacao)/i, "interpretacao_tecnica"],
+    [/^(pl_|projeto_de_lei|consulta_publica|minuta|proposta)/i, "proposta_nao_vigente"],
+    [/^(cronograma_regulatorio|calendario)/i, "cronograma_regulatorio"],
+    [/^(nota_de_governanca)/i, "orientacao_administrativa"],
+  ];
+
+  const KEYWORD_FALLBACK = [
+    [/\b(lei|decreto|medida provisória|mp nº|resolução cmn|resolução cvm|código)\b/i, "direito_vigente"],
+    [/\b(stj|stf|resp|acórdão|tribunal|jurisprud)/i, "jurisprudencia"],
+    [/\b(portaria|nota mapa|orientação|ofício|manual)\b/i, "orientacao_administrativa"],
+    [/\b(parecer|nota técnica|metodologia|laudo)\b/i, "interpretacao_tecnica"],
+    [/\b(pl \d|projeto de lei|consulta pública|minuta)\b/i, "proposta_nao_vigente"],
+    [/\b(cronograma|calendário regulatório)\b/i, "cronograma_regulatorio"],
+  ];
+
+  const RE_PSA = /\b(psa|pnpsa|pfpsa|cnpsa|servi[cç]os? ambientais|pagamento por servi)/i;
+
+  let documentos = [];
+  let filtroTemaAtual = "";
+  let origemAtual = ""; // "local" ou "repositorio"
+
+  function parseFrontMatter(texto){
+    const m = texto.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+    let meta = {};
+    let corpo = texto;
+    if(m){
+      corpo = texto.slice(m[0].length);
+      m[1].split("\n").forEach(linha=>{
+        const idx = linha.indexOf(":");
+        if(idx > -1){
+          const chave = linha.slice(0, idx).trim();
+          let valor = linha.slice(idx+1).trim().replace(/^"(.*)"$/,"$1");
+          if(chave) meta[chave] = valor;
+        }
+      });
+    }
+    return {meta, corpo};
+  }
+
+  function extrairTitulo(corpo, fallback){
+    const m = corpo.match(/^#\s+(.+)$/m);
+    return m ? m[1].trim() : fallback;
+  }
+
+  function extrairResumo(corpo){
+    let bloco = corpo;
+    const chunk1 = corpo.match(/##\s*Chunk 1[^\n]*\n+([\s\S]*?)(\n##|\n#|$)/i);
+    if(chunk1){
+      bloco = chunk1[1];
+    }
+    const paragrafos = bloco.split(/\n\s*\n/).map(p=>p.replace(/^#.*$/gm,"").trim()).filter(p=>p.length>20);
+    let resumo = paragrafos[0] || bloco.trim().slice(0,320);
+    resumo = resumo.replace(/\s+/g," ").trim();
+    if(resumo.length > 420) resumo = resumo.slice(0,420) + "…";
+    return resumo || "(sem resumo extraível — verificar estrutura do arquivo)";
+  }
+
+  function classificar(meta, titulo, resumo){
+    const candidatos = [meta.status, meta.status_juridico, meta.tipo, meta.kind].filter(Boolean);
+    for(const c of candidatos){
+      for(const [re, classe] of TIPO_PARA_CLASSE){
+        if(re.test(c)) return classe;
+      }
+      const direto = c.match(/direito_vigente|jurisprudencia|orientacao_administrativa|interpretacao_tecnica|proposta_nao_vigente|cronograma_regulatorio/);
+      if(direto) return direto[0];
+    }
+    const textoTeste = titulo + " " + resumo;
+    for(const [re, classe] of KEYWORD_FALLBACK){
+      if(re.test(textoTeste)) return classe;
+    }
+    return "nao_classificado";
+  }
+
+  function eixoDoCaminho(caminho){
+    const partes = caminho.split("/");
+    for(const parte of partes){
+      const m = parte.match(/^(\d{2})_/);
+      if(m){
+        const prefixo = m[1];
+        if(EIXOS.find(e=>e.prefix===prefixo)) return prefixo;
+      }
+    }
+    return "NC";
+  }
+
+  function ehPSA(d){
+    return RE_PSA.test(d.titulo + " " + d.resumo + " " + d.temas + " " + d.caminho);
+  }
+
+  async function processarArquivos(fileList){
+    documentos = [];
+    const arquivosMd = Array.from(fileList).filter(f => f.name.toLowerCase().endsWith(".md"));
+    document.getElementById("status").textContent = "Lendo " + arquivosMd.length + " arquivo(s) .md...";
+
+    for(const file of arquivosMd){
+      const texto = await file.text();
+      const caminho = file.webkitRelativePath || file.name;
+      montarDocumento(texto, caminho);
+    }
+    origemAtual = "local";
+    finalizarCarga(arquivosMd.length, "pasta local");
+  }
+
+  function montarDocumento(texto, caminho){
+    const {meta, corpo} = parseFrontMatter(texto);
+    const titulo = extrairTitulo(corpo, meta.id || meta.titulo || meta.title || caminho.split("/").pop().replace(/\.md$/,""));
+    const resumo = extrairResumo(corpo);
+    const classe = classificar(meta, titulo, resumo);
+    const eixo = eixoDoCaminho(caminho);
+    documentos.push({
+      id: meta.id || caminho,
+      titulo, resumo, classe, eixo, caminho, meta,
+      temas: meta.temas || meta.topics || ""
+    });
+  }
+
+  async function carregarDoRepositorio(){
+    document.getElementById("status").textContent = "Buscando 00_INDICES/catalogo_documentos_index.json...";
+    try{
+      const resp = await fetch("00_INDICES/catalogo_documentos_index.json", {cache:"no-store"});
+      if(!resp.ok) throw new Error("HTTP " + resp.status);
+      const lista = await resp.json();
+      documentos = [];
+      for(const item of lista){
+        const caminho = item.path || item.file || "";
+        let titulo = item.title || caminho;
+        let resumo = item.summary || item.resumo || "(resumo não incluído no índice — abrir o arquivo original)";
+        const meta = {status: item.status, tipo: item.type, temas: (item.topics||[]).join ? (item.topics||[]).join(";") : (item.temas||"")};
+        const classe = classificar(meta, titulo, resumo);
+        const eixo = eixoDoCaminho(caminho);
+        documentos.push({id: item.id || caminho, titulo, resumo, classe, eixo, caminho, meta, temas: meta.temas || ""});
+      }
+      origemAtual = "repositorio";
+      finalizarCarga(documentos.length, "repositório publicado (JSON)");
+    }catch(err){
+      document.getElementById("status").textContent =
+        "Não foi possível carregar 00_INDICES/catalogo_documentos_index.json (" + err.message + "). Este botão só funciona quando o HTML está publicado ao lado dessa pasta no GitHub/GitLab Pages. Use 'Selecionar pasta do projeto' para leitura local.";
+    }
+  }
+
+  function finalizarCarga(nArquivos, origem){
+    documentos.sort((a,b)=> a.caminho.localeCompare(b.caminho));
+    document.getElementById("status").textContent =
+      documentos.length + " documento(s) indexado(s) via " + origem + " em " + new Date().toLocaleString("pt-BR") + ".";
+    renderizar();
+  }
+
+  function renderizar(filtroBusca){
+    const termo = (filtroBusca !== undefined ? filtroBusca : document.getElementById("busca").value || "").toLowerCase().trim();
+    let doc = documentos;
+    if(filtroTemaAtual){
+      const re = new RegExp(filtroTemaAtual, "i");
+      doc = doc.filter(d => re.test(d.titulo + " " + d.resumo + " " + d.temas + " " + d.caminho));
+    }
+    if(termo){
+      doc = doc.filter(d => (d.titulo+" "+d.resumo+" "+d.id+" "+d.temas).toLowerCase().includes(termo));
+    }
+
+    const listaEixos = document.getElementById("listaEixos");
+    listaEixos.innerHTML = "";
+    EIXOS.forEach(e=>{
+      const n = doc.filter(d=>d.eixo===e.prefix).length;
+      if(n === 0) return;
+      const div = document.createElement("div");
+      div.className = "eixo-item";
+      div.innerHTML = "<span>"+e.nome+"</span><span class='n'>"+n+"</span>";
+      div.onclick = ()=>{ document.getElementById("eixo-"+e.prefix)?.scrollIntoView({behavior:"smooth"}); };
+      listaEixos.appendChild(div);
+    });
+
+    const cont = document.getElementById("conteudo");
+    cont.innerHTML = "";
+    if(doc.length === 0){
+      cont.innerHTML = '<div class="vazio">Nenhum documento encontrado com esse filtro. Selecione a pasta do projeto ou carregue do repositório para gerar o índice.</div>';
+      document.getElementById("contador").textContent = documentos.length + " documentos indexados (0 exibidos)";
+      return;
+    }
+
+    EIXOS.forEach(e=>{
+      const docsEixo = doc.filter(d=>d.eixo===e.prefix);
+      if(docsEixo.length === 0) return;
+      const h = document.createElement("div");
+      h.className = "eixo-titulo";
+      h.id = "eixo-"+e.prefix;
+      h.textContent = e.nome + " (" + docsEixo.length + ")";
+      cont.appendChild(h);
+
+      docsEixo.forEach(d=>{
+        const card = document.createElement("div");
+        card.className = "card";
+        const marcaPsa = ehPSA(d) ? '<span class="tag-psa">PSA</span>' : "";
+        card.innerHTML = `
+          <div class="card-topo">
+            <h3>${escapeHtml(d.titulo)}${marcaPsa}</h3>
+            <span class="badge ${d.classe}">${d.classe.replace(/_/g," ")}</span>
+          </div>
+          <div class="meta">id: ${escapeHtml(d.id)} ${d.temas ? " · temas: " + escapeHtml(d.temas) : ""}</div>
+          <div class="resumo">${escapeHtml(d.resumo)}</div>
+          <div class="caminho">${escapeHtml(d.caminho)}</div>
+        `;
+        cont.appendChild(card);
+      });
+    });
+
+    document.getElementById("contador").textContent = documentos.length + " documentos indexados (" + doc.length + " exibidos)";
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  }
+
+  const inputPasta = document.getElementById("inputPasta");
+  document.getElementById("btnSelecionar").onclick = ()=> inputPasta.click();
+  document.getElementById("btnAtualizar").onclick = ()=> {
+    // se os documentos vieram do repositório (fetch), atualizar é buscar de novo;
+    // se vieram de pasta local, atualizar é reabrir o seletor.
+    if(origemAtual === "repositorio"){ carregarDoRepositorio(); } else { inputPasta.click(); }
+  };
+  document.getElementById("btnGithub").onclick = carregarDoRepositorio;
+  inputPasta.addEventListener("change", (ev)=> processarArquivos(ev.target.files));
+  document.getElementById("busca").addEventListener("input", (ev)=> renderizar(ev.target.value));
+
+  document.querySelectorAll(".filtro").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".filtro").forEach(b=>b.classList.remove("ativo"));
+      btn.classList.add("ativo");
+      filtroTemaAtual = btn.dataset.tema || "";
+      renderizar();
+    });
+  });
+
+  // Auto-carregamento: se este arquivo estiver servido via http(s) (ex.: GitHub/GitLab
+  // Pages), tenta buscar o índice do repositório sozinho, sem precisar clicar em nada.
+  // Em file:// (aberto direto do disco) o fetch de arquivo local é bloqueado pelo
+  // navegador por segurança, então nesse caso não tenta e pede para selecionar a pasta.
+  if(location.protocol === "http:" || location.protocol === "https:"){
+    document.getElementById("status").textContent = "Carregando automaticamente do repositório...";
+    carregarDoRepositorio();
+  } else {
+    document.getElementById("status").textContent =
+      "Arquivo aberto localmente (file://): o carregamento automático só funciona quando publicado em http/https (GitHub/GitLab Pages). Use \"Selecionar pasta do projeto\".";
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+[
+  {
+    "path": "00_GOVERNANCA_E_STATUS/CORRECAO_RESOLUCAO_CMN_5330_2026.md",
+    "title": "Nota de governança — verificação da Resolução CMN nº 5.330/2026 (substitui nota anterior)",
+    "date": "2026-07-30",
+    "status": "controle_de_qualidade",
+    "type": "nota_de_governanca",
+    "authority": "Governança interna do RAG"
+  },
+  {
+    "path": "00_INDICES/INDICE_TEMATICO_PSA.md",
+    "title": "Índice temático — Pagamento por Serviços Ambientais (PSA)",
+    "date": "2026-07-30",
+    "status": "referencia_interna",
+    "type": "indice_tematico",
+    "authority": "Governança interna do RAG"
+  },
+  {
+    "path": "00_metadados/FONTES.md",
+    "title": "Catálogo de fontes verificadas",
+    "date": "",
+    "status": "",
+    "type": "catalogo_fontes",
+    "authority": ""
+  },
+  {
+    "path": "00_metadados/LOG_PESQUISA.md",
+    "title": "Log de pesquisa e lacunas",
+    "date": "",
+    "status": "",
+    "type": "log_pesquisa",
+    "authority": ""
+  },
+  {
+    "path": "00_metadados/METODOLOGIA.md",
+    "title": "Metodologia e níveis de confiança",
+    "date": "",
+    "status": "",
+    "type": "metodologia",
+    "authority": ""
+  },
+  {
+    "path": "00_metadados/SCHEMA_RAG.md",
+    "title": "Esquema recomendado para RAG",
+    "date": "",
+    "status": "",
+    "type": "schema",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/01_LEI_8929_1994.md",
+    "title": "Lei nº 8.929/1994 — Lei da CPR",
+    "date": "",
+    "status": "",
+    "type": "lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/02_LEI_13986_2020.md",
+    "title": "Lei nº 13.986/2020 — Modernização da CPR",
+    "date": "",
+    "status": "",
+    "type": "lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/03_DECRETO_10828_2021.md",
+    "title": "Decreto nº 10.828/2021 — CPR Verde",
+    "date": "",
+    "status": "",
+    "type": "decreto",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/04_LEI_14119_2021_PSA.md",
+    "title": "Lei nº 14.119/2021 — Política Nacional de Pagamento por Serviços Ambientais",
+    "date": "",
+    "status": "",
+    "type": "lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/05_CODIGO_FLORESTAL.md",
+    "title": "Lei nº 12.651/2012 — Código Florestal",
+    "date": "",
+    "status": "",
+    "type": "lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/06_LEI_15042_2024_SBCE.md",
+    "title": "Lei nº 15.042/2024 — Sistema Brasileiro de Comércio de Emissões",
+    "date": "",
+    "status": "",
+    "type": "lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/07_MP_1376_2026.md",
+    "title": "MP nº 1.376/2026 — Composição de dívidas e CPR",
+    "date": "",
+    "status": "",
+    "type": "medida_provisoria",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/08_PL_3838_2024.md",
+    "title": "PL nº 3.838/2024",
+    "date": "",
+    "status": "",
+    "type": "projeto_de_lei",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/09_RESOLUCAO_CMN_5330_2026.md",
+    "title": "Resolução CMN nº 5.330/2026 — Regulamentação operacional da MP nº 1.376/2026",
+    "date": "2026-07-30",
+    "status": "",
+    "type": "resolucao_cmn",
+    "authority": ""
+  },
+  {
+    "path": "01_base_legal/10_DECRETO_13018_2026_PSA.md",
+    "title": "Decreto nº 13.018, de 11 de junho de 2026",
+    "date": "2026-06-12",
+    "status": "vigente",
+    "type": "decreto",
+    "authority": "Presidência da República / Ministério do Meio Ambiente e Mudança do Clima"
+  },
+  {
+    "path": "02_estrutura_juridica/01_CONCEITO_EMISSORES_OBJETO.md",
+    "title": "Conceito, emissores e objeto",
+    "date": "",
+    "status": "",
+    "type": "guia_juridico",
+    "authority": ""
+  },
+  {
+    "path": "02_estrutura_juridica/02_MODALIDADES.md",
+    "title": "CPR física, financeira e temática",
+    "date": "",
+    "status": "",
+    "type": "guia_juridico",
+    "authority": ""
+  },
+  {
+    "path": "02_estrutura_juridica/03_REQUISITOS.md",
+    "title": "Requisitos do título",
+    "date": "",
+    "status": "",
+    "type": "checklist_juridico",
+    "authority": ""
+  },
+  {
+    "path": "02_estrutura_juridica/04_GARANTIAS_ART18.md",
+    "title": "Garantias e art. 18",
+    "date": "",
+    "status": "",
+    "type": "guia_juridico",
+    "authority": ""
+  },
+  {
+    "path": "02_estrutura_juridica/05_CPR_VERDE_VS_CARBONO.md",
+    "title": "CPR Verde versus crédito de carbono",
+    "date": "",
+    "status": "",
+    "type": "comparativo",
+    "authority": ""
+  },
+  {
+    "path": "02_estrutura_juridica/06_RISCOS_E_CLAIMS.md",
+    "title": "Riscos jurídicos e claims",
+    "date": "",
+    "status": "",
+    "type": "matriz_risco",
+    "authority": ""
+  },
+  {
+    "path": "03_operacao_e_registro/01_FLUXO_OPERACIONAL.md",
+    "title": "Fluxo operacional",
+    "date": "",
+    "status": "",
+    "type": "procedimento",
+    "authority": ""
+  },
+  {
+    "path": "03_operacao_e_registro/02_REGISTRO_DEPOSITO.md",
+    "title": "Registro e depósito",
+    "date": "",
+    "status": "",
+    "type": "guia_operacional",
+    "authority": ""
+  },
+  {
+    "path": "03_operacao_e_registro/03_CHECKLIST_DOCUMENTAL.md",
+    "title": "Checklist documental",
+    "date": "",
+    "status": "",
+    "type": "checklist",
+    "authority": ""
+  },
+  {
+    "path": "03_operacao_e_registro/04_DUE_DILIGENCE.md",
+    "title": "Due diligence",
+    "date": "",
+    "status": "",
+    "type": "procedimento",
+    "authority": ""
+  },
+  {
+    "path": "03_operacao_e_registro/05_LIQUIDACAO_INADIMPLEMENTO.md",
+    "title": "Liquidação e inadimplemento",
+    "date": "",
+    "status": "",
+    "type": "guia_juridico",
+    "authority": ""
+  },
+  {
+    "path": "04_ambiental_e_mrv/01_PRODUTO_AMBIENTAL.md",
+    "title": "Produto ambiental elegível",
+    "date": "",
+    "status": "",
+    "type": "guia_tecnico_juridico",
+    "authority": ""
+  },
+  {
+    "path": "04_ambiental_e_mrv/02_AUDITORIA_CERTIFICACAO.md",
+    "title": "Auditoria e certificação",
+    "date": "",
+    "status": "",
+    "type": "guia_tecnico",
+    "authority": ""
+  },
+  {
+    "path": "04_ambiental_e_mrv/03_MRV_EVIDENCIAS.md",
+    "title": "MRV e evidências",
+    "date": "",
+    "status": "",
+    "type": "guia_tecnico",
+    "authority": ""
+  },
+  {
+    "path": "04_ambiental_e_mrv/04_APP_RL_PSA.md",
+    "title": "APP, Reserva Legal e PSA",
+    "date": "",
+    "status": "",
+    "type": "guia_ambiental",
+    "authority": ""
+  },
+  {
+    "path": "04_ambiental_e_mrv/05_DUPLA_CONTAGEM.md",
+    "title": "Dupla contagem",
+    "date": "",
+    "status": "",
+    "type": "controle_risco",
+    "authority": ""
+  },
+  {
+    "path": "05_mercado_capitais/01_CVM_OFERTA_PUBLICA.md",
+    "title": "CPR, valor mobiliário e oferta pública",
+    "date": "",
+    "status": "",
+    "type": "guia_regulatorio",
+    "authority": ""
+  },
+  {
+    "path": "05_mercado_capitais/02_SECURITIZACAO_CRA.md",
+    "title": "Securitização e CRA",
+    "date": "",
+    "status": "",
+    "type": "guia_regulatorio",
+    "authority": ""
+  },
+  {
+    "path": "05_mercado_capitais/03_TOKENIZACAO.md",
+    "title": "Tokenização e limites",
+    "date": "",
+    "status": "",
+    "type": "guia_regulatorio",
+    "authority": ""
+  },
+  {
+    "path": "06_jurisprudencia/01_STJ_RESP_1327643_RS.md",
+    "title": "STJ — REsp nº 1.327.643/RS",
+    "date": "2019-08-06",
+    "status": "",
+    "type": "jurisprudencia",
+    "authority": ""
+  },
+  {
+    "path": "06_jurisprudencia/02_MAPA_JURISPRUDENCIAL.md",
+    "title": "Mapa de questões jurisprudenciais",
+    "date": "",
+    "status": "",
+    "type": "mapa_pesquisa",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/INDEX_ESTADOS.md",
+    "title": "Índice das 27 unidades federativas",
+    "date": "",
+    "status": "",
+    "type": "indice_estadual",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/REGIAO_CENTRO_OESTE.md",
+    "title": "Região Centro-Oeste",
+    "date": "",
+    "status": "",
+    "type": "dossie_regional",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/REGIAO_NORDESTE.md",
+    "title": "Região Nordeste",
+    "date": "",
+    "status": "",
+    "type": "dossie_regional",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/REGIAO_NORTE.md",
+    "title": "Região Norte",
+    "date": "",
+    "status": "",
+    "type": "dossie_regional",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/REGIAO_SUDESTE.md",
+    "title": "Região Sudeste",
+    "date": "",
+    "status": "",
+    "type": "dossie_regional",
+    "authority": ""
+  },
+  {
+    "path": "07_estados/REGIAO_SUL.md",
+    "title": "Região Sul",
+    "date": "",
+    "status": "",
+    "type": "dossie_regional",
+    "authority": ""
+  },
+  {
+    "path": "08_publicacoes/01_PUBLICACOES_INSTITUCIONAIS.md",
+    "title": "Publicações governamentais e institucionais",
+    "date": "",
+    "status": "",
+    "type": "bibliografia_anotada",
+    "authority": ""
+  },
+  {
+    "path": "08_publicacoes/02_IPEA_SEMIARIDO.md",
+    "title": "Ipea — CPR Verde no Semiárido",
+    "date": "",
+    "status": "",
+    "type": "publicacao_institucional",
+    "authority": ""
+  },
+  {
+    "path": "08_publicacoes/03_DEBATE_E_LACUNAS.md",
+    "title": "Debate público e lacunas verificadas",
+    "date": "",
+    "status": "",
+    "type": "sintese_debate",
+    "authority": ""
+  },
+  {
+    "path": "09_documentos_fornecidos/01_ITA_STJ.md",
+    "title": "ITA.pdf — Inteiro teor do STJ",
+    "date": "",
+    "status": "",
+    "type": "documento_fornecido",
+    "authority": ""
+  },
+  {
+    "path": "09_documentos_fornecidos/02_NATURAL_CAPITAL_BLUEPRINT.md",
+    "title": "Natural Capital Blueprint",
+    "date": "",
+    "status": "",
+    "type": "documento_fornecido",
+    "authority": ""
+  },
+  {
+    "path": "10_SBCE_IMPLEMENTACAO_2026/06_ITMOS_ARTIGO_6.md",
+    "title": "Consulta pública sobre transferências internacionais de resultados de mitigação — ITMOs",
+    "date": "2026-07-15",
+    "status": "proposta_nao_vigente",
+    "type": "consulta_publica",
+    "authority": "Ministério do Meio Ambiente e Mudança do Clima"
+  },
+  {
+    "path": "10_SBCE_IMPLEMENTACAO_2026/07_TERRAS_PUBLICAS_FEDERAIS.md",
+    "title": "Portaria Interministerial MF/MMA nº 69, de 13 de maio de 2026",
+    "date": "2026-05-13",
+    "status": "vigente",
+    "type": "portaria_interministerial",
+    "authority": "Ministério da Fazenda e Ministério do Meio Ambiente e Mudança do Clima"
+  },
+  {
+    "path": "10_SBCE_IMPLEMENTACAO_2026/08_CRONOGRAMA_E_CONSULTAS_PUBLICAS.md",
+    "title": "Calendário da Secretaria Extraordinária do Mercado de Carbono — atualização de 28 de julho de 2026",
+    "date": "2026-07-28",
+    "status": "orientacao_administrativa",
+    "type": "calendario_regulatorio",
+    "authority": "Ministério da Fazenda — Secretaria Extraordinária do Mercado de Carbono"
+  },
+  {
+    "path": "CHANGELOG.md",
+    "title": "Changelog",
+    "date": "",
+    "status": "",
+    "type": "",
+    "authority": ""
+  },
+  {
+    "path": "COMO_USAR_O_INDEX_HTML.md",
+    "title": "Como usar o índice HTML",
+    "date": "",
+    "status": "",
+    "type": "",
+    "authority": ""
+  },
+  {
+    "path": "INDEX.md",
+    "title": "Índice mestre — CPR Verde",
+    "date": "",
+    "status": "",
+    "type": "indice_mestre",
+    "authority": ""
+  },
+  {
+    "path": "INDEX_CRONOLOGICO.md",
+    "title": "Índice cronológico consolidado",
+    "date": "",
+    "status": "",
+    "type": "",
+    "authority": ""
+  },
+  {
+    "path": "PUBLICACAO_GITHUB_GITLAB.md",
+    "title": "Publicação e atualização online",
+    "date": "",
+    "status": "",
+    "type": "",
+    "authority": ""
+  },
+  {
+    "path": "README.md",
+    "title": "RAG CPR Verde Brasil",
+    "date": "",
+    "status": "",
+    "type": "",
+    "authority": ""
+  }
+]

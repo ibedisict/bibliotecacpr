@@ -1,0 +1,12 @@
+image: python:3.12-slim
+
+pages:
+  script:
+    - python 06_SCRIPTS/gerar_site.py
+    - mkdir public
+    - cp -r index.html *.md *.json 00_* 01_* 02_* 03_* 04_* 05_* 06_* 07_* 08_* 09_* 10_* public/ 2>/dev/null || true
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

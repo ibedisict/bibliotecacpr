@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-07-30",
+  "files": [
+    {
+      "file": ".github/workflows/pages.yml",
+      "bytes": 1039,
+      "sha256": "b1e8684a53ca99e024665ab12ffadaf637b6fd3161d2a8c69d0ea595585ffbaf"
+    },
+    {
+      "file": ".gitlab-ci.yml",
+      "bytes": 315,
+      "sha256": "26d59badb4b33e05521874de32f648d0218b07e271abcc9e9a41191dcb27ff00"
+    },
+    {
+      "file": "00_GOVERNANCA_E_STATUS/CORRECAO_RESOLUCAO_CMN_5330_2026.md",
+      "bytes": 2639,
+      "sha256": "abaa72fb0a537df674b26a131dfc8128c16ac170dc87205532f8fcb6c80710b2"
+    },
+    {
+      "file": "00_INDICES/catalogo_documentos_index.json",
+      "bytes": 12155,
+      "sha256": "06eea263eaa6ee6ab762a04d9502098d71663fcfed5265bd21bb084ef4f4b6e6"
+    },
+    {
+      "file": "00_INDICES/INDICE_TEMATICO_PSA.md",
+      "bytes": 3878,
+      "sha256": "1c9d33c90fe194326b98414985df207e51a0331e22d2cc042bef9c4a27238ce1"
+    },
+    {
+      "file": "00_metadados/FONTES.md",
+      "bytes": 2485,
+      "sha256": "54ab835bac4925d417eaae4da734648c36cdd619fff6a2aba646abe46f4cd56b"
+    },
+    {
+      "file": "00_metadados/LOG_PESQUISA.md",
+      "bytes": 967,
+      "sha256": "91f48b5e393dbc0c5f1a9dcfa67120024e45012ae16d8d763d2498c535aa451d"
+    },
+    {
+      "file": "00_metadados/METODOLOGIA.md",
+      "bytes": 1367,
+      "sha256": "e61ba8ae983c250ce1363099066c743517d8ce216d0d7ea8b66903802746d218"
+    },
+    {
+      "file": "00_metadados/SCHEMA_RAG.md",
+      "bytes": 753,
+      "sha256": "ecd029df91f7132fefd5fc773efc2a5f773b9e8cdc90e017d7a449f281cd0d8a"
+    },
+    {
+      "file": "01_base_legal/01_LEI_8929_1994.md",
+      "bytes": 1442,
+      "sha256": "e9eb7c51b76b845447b2f829af6a1a722ca3b502b44aed596ab2f1f11e16f1f4"
+    },
+    {
+      "file": "01_base_legal/02_LEI_13986_2020.md",
+      "bytes": 923,
+      "sha256": "8cc076ed1d0140342d883ed69a8d0e1c9665b1349e6b697b7ea8c46c10c8064d"
+    },
+    {
+      "file": "01_base_legal/03_DECRETO_10828_2021.md",
+      "bytes": 1351,
+      "sha256": "99060f23b05a834328bad14c60aebadc2579e09ce3bb41de27367a52033269ea"
+    },
+    {
+      "file": "01_base_legal/04_LEI_14119_2021_PSA.md",
+      "bytes": 1056,
+      "sha256": "63359cf48bcd575be679065fcce6dd5f0c4a5e39a0f2079e0d60bc6726cd2ec2"
+    },
+    {
+      "file": "01_base_legal/05_CODIGO_FLORESTAL.md",
+      "bytes": 1123,
+      "sha256": "24160cdab559c70de8a31df4a08200cb678862fbe9f0a070beb951a58d6da15f"
+    },
+    {
+      "file": "01_base_legal/06_LEI_15042_2024_SBCE.md",
+      "bytes": 1038,
+      "sha256": "f6a8144415d5e4058ff6787737d2ce604453e9a7f40ce265e2a2766196f0ca2e"
+    },
+    {
+      "file": "01_base_legal/07_MP_1376_2026.md",
+      "bytes": 1310,
+      "sha256": "4b171758d636a8de4f1d55dae54ccdcd2a266fb0a110f061cbf21898fe51150e"
+    },
+    {
+      "file": "01_base_legal/08_PL_3838_2024.md",
+      "bytes": 909,
+      "sha256": "4de6b7d978a7223efcd529076b4bb8d39a8dc03e95dba1b4f58ab49ca7e028f2"
+    },
+    {
+      "file": "01_base_legal/09_RESOLUCAO_CMN_5330_2026.md",
+      "bytes": 2081,
+      "sha256": "61ce25a4517ce1de3329250b6917ef55417ad64afbf4ac9dcdec12cd7d6fe691"
+    },
+    {
+      "file": "01_base_legal/10_DECRETO_13018_2026_PSA.md",
+      "bytes": 3317,
+      "sha256": "d9f0617cf9dc9138b8bfc939221b8a3f44360a474411dcde94234128d0e48006"
+    },
+    {
+      "file": "02_estrutura_juridica/01_CONCEITO_EMISSORES_OBJETO.md",
+      "bytes": 784,
+      "sha256": "46433eaa8fde0d29530b1a6c6d6961b08c75f3893d6a7dc90d9c5668bf3e577f"
+    },
+    {
+      "file": "02_estrutura_juridica/02_MODALIDADES.md",
+      "bytes": 987,
+      "sha256": "f9a4eaa638144054ed36bd91c5ff8128c3a64ab4ca5170a2dc29512b69336d44"
+    },
+    {
+      "file": "02_estrutura_juridica/03_REQUISITOS.md",
+      "bytes": 865,
+      "sha256": "4a47686235b68dbcad3a8a52c6c6d6eeafac063ffeaf5b220f9722d702a030d2"
+    },
+    {
+      "file": "02_estrutura_juridica/04_GARANTIAS_ART18.md",
+      "bytes": 742,
+      "sha256": "efbcd5693254747b73eb0983d7a69dca6cfe5d835b4364855978d23d0bc2e31b"
+    },
+    {
+      "file": "02_estrutura_juridica/05_CPR_VERDE_VS_CARBONO.md",
+      "bytes": 922,
+      "sha256": "8f6fa1160adb085a0f6b2983d7b0f76aaf03c89572f9d608143ccc78e23391dd"
+    },
+    {
+      "file": "02_estrutura_juridica/06_RISCOS_E_CLAIMS.md",
+      "bytes": 813,
+      "sha256": "26753c82a22617dc8fa37f6cddaa0f65cb19cdb19fcee70bf10b59c7b619e504"
+    },
+    {
+      "file": "03_operacao_e_registro/01_FLUXO_OPERACIONAL.md",
+      "bytes": 696,
+      "sha256": "3a3143c05e0abc226a68360d7911f9ae52fe9d5c8d55bd2ab7d954df1e714856"
+    },
+    {
+      "file": "03_operacao_e_registro/02_REGISTRO_DEPOSITO.md",
+      "bytes": 737,
+      "sha256": "10878ac6ff17901db0e67eb2145b9ca8d6007dff3b6faa106e443188c67edec0"
+    },
+    {
+      "file": "03_operacao_e_registro/03_CHECKLIST_DOCUMENTAL.md",
+      "bytes": 899,
+      "sha256": "3f0991f28b6fc56bee57eee2315d0ab403c17de261fb40df63d77d5b16b21dab"
+    },
+    {
+      "file": "03_operacao_e_registro/04_DUE_DILIGENCE.md",
+      "bytes": 762,
+      "sha256": "86de7b56c709ad6ac51b53a74f2a3318cb1f127d6d27cf47300a5137d8fa92ee"
+    },
+    {
+      "file": "03_operacao_e_registro/05_LIQUIDACAO_INADIMPLEMENTO.md",
+      "bytes": 735,
+      "sha256": "c32746206dd238a1daeeee1057787137085445956fc80cf829ff11a1ad111c8d"
+    },
+    {
+      "file": "04_ambiental_e_mrv/01_PRODUTO_AMBIENTAL.md",
+      "bytes": 754,
+      "sha256": "f1d6972640cc1c0929d59916d84b75dfb71064c27256fbbf2d977483594b0a2c"
+    },
+    {
+      "file": "04_ambiental_e_mrv/02_AUDITORIA_CERTIFICACAO.md",
+      "bytes": 619,
+      "sha256": "9be96cf1d8871e81a93ffe899d822206d7faa4eced749b83b8bab1acb15dfb6f"
+    },
+    {
+      "file": "04_ambiental_e_mrv/03_MRV_EVIDENCIAS.md",
+      "bytes": 689,
+      "sha256": "109ee620b96cde938d7cb86a30579c3e19e70e54d53b757536e5ec6426fe4cc2"
+    },
+    {
+      "file": "04_ambiental_e_mrv/04_APP_RL_PSA.md",
+      "bytes": 596,
+      "sha256": "75928e66ae98959cbbefb99fd2dca26c29a212ee8d09700ce82463900c62c476"
+    },
+    {
+      "file": "04_ambiental_e_mrv/05_DUPLA_CONTAGEM.md",
+      "bytes": 647,
+      "sha256": "6d1e2b5a15e214ab7faea9c20d3706361daa2a74360dfdc1b65cca5f6fdb03cc"
+    },
+    {
+      "file": "05_mercado_capitais/01_CVM_OFERTA_PUBLICA.md",
+      "bytes": 725,
+      "sha256": "2d742a6fc649291c6de199ac1ffb0ea0d5f19ebff49e61305bfc5d6de7e9077e"
+    },
+    {
+      "file": "05_mercado_capitais/02_SECURITIZACAO_CRA.md",
+      "bytes": 554,
+      "sha256": "1e3e5c518e05cecb0a92bc5e5ea6b1186a17e9581ce0b3e0d878f0fd327436c1"
+    },
+    {
+      "file": "05_mercado_capitais/03_TOKENIZACAO.md",
+      "bytes": 689,
+      "sha256": "0f6334596a15a3022146c57aea75524081218c07ec3ff9c3afb2bc104b8c411e"
+    },
+    {
+      "file": "06_jurisprudencia/01_STJ_RESP_1327643_RS.md",
+      "bytes": 915,
+      "sha256": "8c5a5bf8efd8bc529954bf5605fe29ad567e8e6d3d768fb91688065213879d6c"
+    },
+    {
+      "file": "06_jurisprudencia/02_MAPA_JURISPRUDENCIAL.md",
+      "bytes": 719,
+      "sha256": "f4a85d98c70ffdc38c7adc928cfc909657614bc6201da0686c5d43d460a754ab"
+    },
+    {
+      "file": "06_SCRIPTS/atualizar_biblioteca.py",
+      "bytes": 700,
+      "sha256": "9b6c6d1cfc661fe4082ca858e3a05c62d574edb8d00c4848d821d7c3741fd58f"
+    },
+    {
+      "file": "06_SCRIPTS/gerar_site.py",
+      "bytes": 2386,
+      "sha256": "71f6796355cd88040dd38741d848612d75a2c5b900e1d0ac1af26f360530af05"
+    },
+    {
+      "file": "06_SCRIPTS/publicar_github.py",
+      "bytes": 7351,
+      "sha256": "3cc0fcd0126218fb464f9660f84882e9740314a9ea2966e79ad438ece8ba3e8b"
+    },
+    {
+      "file": "07_estados/INDEX_ESTADOS.md",
+      "bytes": 2447,
+      "sha256": "0c5e4cc87158718433c54e8abc6ee2cd670dd04f23f887de7e3a521c1c47e0e4"
+    },
+    {
+      "file": "07_estados/REGIAO_CENTRO_OESTE.md",
+      "bytes": 1398,
+      "sha256": "9a06144ceb37e8d09a722fad18720d42dfe7c63d4de8c0566bf889ddaaf3a08c"
+    },
+    {
+      "file": "07_estados/REGIAO_NORDESTE.md",
+      "bytes": 889,
+      "sha256": "e5bedb81c1d4276101e906689033b591271a1415fec5eead7f283accb93419f0"
+    },
+    {
+      "file": "07_estados/REGIAO_NORTE.md",
+      "bytes": 920,
+      "sha256": "e70934f7e0e5f87f4b26b602152b0651a0c4786b65adba8cea3a31dad16ba724"
+    },
+    {
+      "file": "07_estados/REGIAO_SUDESTE.md",
+      "bytes": 729,
+      "sha256": "511878cf3d65fb74cbaed20fa17cd903e3508acb9f482354e48b54262529ae8c"
+    },
+    {
+      "file": "07_estados/REGIAO_SUL.md",
+      "bytes": 795,
+      "sha256": "a3cd2a65b0ced81f4f2d69812d93660b93689a0ef597114879e1153c233c6c69"
+    },
+    {
+      "file": "08_publicacoes/01_PUBLICACOES_INSTITUCIONAIS.md",
+      "bytes": 1446,
+      "sha256": "c25452e226fecaffdcc18fda8d1f0ae66392079d378f640ec9e387f5ae0ae77e"
+    },
+    {
+      "file": "08_publicacoes/02_IPEA_SEMIARIDO.md",
+      "bytes": 708,
+      "sha256": "58b80990a864dc82562b5020d9c9086a18bec12b39d98d7e63dcce2e14752393"
+    },
+    {
+      "file": "08_publicacoes/03_DEBATE_E_LACUNAS.md",
+      "bytes": 821,
+      "sha256": "0488e5f76afd6ad29b5d039684b577856625bd6a359880e13a62f6d30945e5a0"
+    },
+    {
+      "file": "09_documentos_fornecidos/01_ITA_STJ.md",
+      "bytes": 526,
+      "sha256": "7f66c39716db6ebf7eaa0f05c096de008dae1b50357ce65c472f9b3da8b9be56"
+    },
+    {
+      "file": "09_documentos_fornecidos/02_NATURAL_CAPITAL_BLUEPRINT.md",
+      "bytes": 983,
+      "sha256": "817ab37bcaaa38968bb21c41465b1495a09aa8361f290f41759afcf22a9de812"
+    },
+    {
+      "file": "10_SBCE_IMPLEMENTACAO_2026/06_ITMOS_ARTIGO_6.md",
+      "bytes": 2789,
+      "sha256": "b57fe8317e2b8392912bd1712fc83fb48f4ff4b88642f2208ee36a545a4c4692"
+    },
+    {
+      "file": "10_SBCE_IMPLEMENTACAO_2026/07_TERRAS_PUBLICAS_FEDERAIS.md",
+      "bytes": 2990,
+      "sha256": "856105a16b124fe8d3f1210e409b3bb1654d13afe222f83e0289164e450f1bce"
+    },
+    {
+      "file": "10_SBCE_IMPLEMENTACAO_2026/08_CRONOGRAMA_E_CONSULTAS_PUBLICAS.md",
+      "bytes": 2480,
+      "sha256": "9a441844a9f006d225c0b1a873456f6418b0ed00b19493975dd05295029ae024"
+    },
+    {
+      "file": "biblioteca_ibedis.html",
+      "bytes": 22643,
+      "sha256": "5a047fecc4839383f150117437c602236c688536f6efcd49c620230acfad8cbd"
+    },
+    {
+      "file": "catalogo_fontes.csv",
+      "bytes": 15400,
+      "sha256": "58070a1ecb3bd91f60fa80edaa77216d9d40cc022bfd482d95b0f6d9fcef8f4f"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 1971,
+      "sha256": "1421c46a5f9e22ceb6cb14c59391945be388d3c8b1231b4c1089cb48c827f6fc"
+    },
+    {
+      "file": "COMO_USAR_O_INDEX_HTML.md",
+      "bytes": 1051,
+      "sha256": "838c0bc96806d941cd03d7733c2c62f08535898c44f372fc796158c6cf49128e"
+    },
+    {
+      "file": "fontes_oficiais_manifest.csv",
+      "bytes": 11483,
+      "sha256": "457b51e5a6c53db9c87d28097328fb2d52de3b98fb897c07303d08b2b6e47102"
+    },
+    {
+      "file": "INDEX.md",
+      "bytes": 3512,
+      "sha256": "80acc091c597c4402ff0059ff0e53b897a179bba57aa164d3c2771fd2621b375"
+    },
+    {
+      "file": "INDEX_CRONOLOGICO.md",
+      "bytes": 7471,
+      "sha256": "f7f7262dcfc5cd5ef349552c2d15ec016c423f8ba4e7518c0755725a77bcfd5d"
+    },
+    {
+      "file": "PUBLICACAO_GITHUB_GITLAB.md",
+      "bytes": 1589,
+      "sha256": "8e72c1943429f64368cc55386600ac72921febe4fd398321e3cc6e640568aac6"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1363,
+      "sha256": "9e103f960f7da636b3e1d94ed3f981353f4ecb21687442939d529f36c8405b0d"
+    }
+  ]
+}
