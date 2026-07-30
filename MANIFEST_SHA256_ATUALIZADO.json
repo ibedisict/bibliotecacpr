@@ -4,12 +4,12 @@
     {
       "file": ".git/COMMIT_EDITMSG",
       "bytes": 50,
-      "sha256": "3898bb7ceeb5c567edc37500ce49e113a599ee15344a9d99c19955341226daae"
+      "sha256": "faeccbd2e4e9825be3380c1d345d50cb94d0916f2f79eec381ef3eaf2decf860"
     },
     {
       "file": ".git/config",
-      "bytes": 243,
-      "sha256": "03bb98b2d17e7bc30cb95b0cce96e6c8b3c6b2866be6c43a3fbb554eabd69c71"
+      "bytes": 301,
+      "sha256": "f733f07a7168de7efbf56cfc85e6c1fe42b17e19cb057218418995973028af92"
     },
     {
       "file": ".git/description",
@@ -94,7 +94,7 @@
     {
       "file": ".git/index",
       "bytes": 7578,
-      "sha256": "fe2f28f80213e282146022bbb080a534dcbbc9fadfc0a7cf729ae45816eed2cb"
+      "sha256": "e9524336fb451e224095a809b56a10aaefce15e86b7042359c1ffc4e18c03d56"
     },
     {
       "file": ".git/info/exclude",
@@ -103,13 +103,18 @@
     },
     {
       "file": ".git/logs/HEAD",
-      "bytes": 202,
-      "sha256": "2be6ae18c1ab4c5ad9f921f9e2b59c70221df4e8651ceb5b366cf149005cdac9"
+      "bytes": 394,
+      "sha256": "8e1b7c1574dedfff5b7d002b4e1511ff036b7e31b2f0c0fd9bc57aaa9aca57d4"
     },
     {
       "file": ".git/logs/refs/heads/main",
-      "bytes": 202,
-      "sha256": "2be6ae18c1ab4c5ad9f921f9e2b59c70221df4e8651ceb5b366cf149005cdac9"
+      "bytes": 394,
+      "sha256": "8e1b7c1574dedfff5b7d002b4e1511ff036b7e31b2f0c0fd9bc57aaa9aca57d4"
+    },
+    {
+      "file": ".git/logs/refs/remotes/origin/main",
+      "bytes": 149,
+      "sha256": "e2fbe2555687dbc02a7f70522f0c90a705a9d39974081af2ec7df0942c01106b"
     },
     {
       "file": ".git/objects/00/05dfe20f3f9caeb4d511fddf9759b482f5d4eb",
@@ -230,6 +235,11 @@
       "file": ".git/objects/41/db8d84921924358cd791eccf17a0f26c6949bf",
       "bytes": 607,
       "sha256": "1cbc9a1a01ab7c2d4516a1953c0779f8d0a62b8e3402af3337c3d8341505be8b"
+    },
+    {
+      "file": ".git/objects/50/c86866a0983cfc207f09d4d8942395b04a3357",
+      "bytes": 1039,
+      "sha256": "6c1e4eb7ff8071d80dbcd2b751524b7f7d97b22ea183fea4897fc62a0736be90"
     },
     {
       "file": ".git/objects/51/0e54b46f9c0825c31859b61f01aa2a6acc2fe2",
@@ -507,6 +517,16 @@
       "sha256": "8b5dfb35dc35908d35cdc38e99d735d67bc13cbdbc1e17c4cfa749522b45b66a"
     },
     {
+      "file": ".git/objects/ef/2ebb5b05e5015e5b73d763bb440faa371cd1e2",
+      "bytes": 201,
+      "sha256": "a8c70a9177876bd4be9171df90f4cbdb23d581e289b90e1814f0a586f3331727"
+    },
+    {
+      "file": ".git/objects/f0/a55c8f48ed5697d6df083323b8b6c20ca6d6e1",
+      "bytes": 12338,
+      "sha256": "fad6db2e36c80b350e9fac5d343a93226631761a0ae80d7cf96f4c317339f299"
+    },
+    {
       "file": ".git/objects/f2/8c8fd2f2d57f516ab76216da584c13bb9db790",
       "bytes": 573,
       "sha256": "bf93d71b7293a09d178394644591b180fe236f7833b627021503d084a245d11b"
@@ -539,7 +559,12 @@
     {
       "file": ".git/refs/heads/main",
       "bytes": 41,
-      "sha256": "c866522180d88f305391eadbb126201908e5e6cfaf9cd0de3977a3b370153e5b"
+      "sha256": "fd1269573c82d469a8f35b4e84edeb1becb409968b5975e2339f3b8d562d5353"
+    },
+    {
+      "file": ".git/refs/remotes/origin/main",
+      "bytes": 41,
+      "sha256": "fd1269573c82d469a8f35b4e84edeb1becb409968b5975e2339f3b8d562d5353"
     },
     {
       "file": ".github/workflows/pages.yml",
@@ -828,8 +853,8 @@
     },
     {
       "file": "biblioteca_ibedis.html",
-      "bytes": 22643,
-      "sha256": "5a047fecc4839383f150117437c602236c688536f6efcd49c620230acfad8cbd"
+      "bytes": 23082,
+      "sha256": "29d66610cebd8bb935dd87497b6219539de14ba647ca3ab7356d4f51832a13c1"
     },
     {
       "file": "catalogo_fontes.csv",

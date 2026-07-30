@@ -239,6 +239,12 @@
     border-top:1px solid var(--cinza-fundo-2);
     padding-top:7px;
   }
+  .caminho a{
+    color:var(--preto);
+    font-weight:700;
+    text-decoration:underline;
+  }
+  .caminho a:hover{ color:var(--cinza-escuro); }
   .vazio{
     font-family:Arial, sans-serif;
     color:var(--preto-suave);
@@ -554,7 +560,11 @@
           </div>
           <div class="meta">id: ${escapeHtml(d.id)} ${d.temas ? " · temas: " + escapeHtml(d.temas) : ""}</div>
           <div class="resumo">${escapeHtml(d.resumo)}</div>
-          <div class="caminho">${escapeHtml(d.caminho)}</div>
+          <div class="caminho">${
+            origemAtual === "repositorio"
+              ? '<a href="' + escapeHtml(d.caminho) + '" target="_blank" rel="noopener">Abrir arquivo original ↗</a> · ' + escapeHtml(d.caminho)
+              : escapeHtml(d.caminho) + ' (abrir arquivo original só funciona no modo "Carregar do repositório")'
+          }</div>
         `;
         cont.appendChild(card);
       });
