@@ -16,6 +16,6 @@ Portais federais apresentaram a CPR Verde como instrumento para remunerar produt
 
 Em 2022, o MAPA divulgou reunião com empresas para debater ajustes no marco legal. Em 2023, publicou que operadores avaliavam que a CPR Verde não havia funcionado como esperado. São registros oficiais de debate e limitação de mercado, não dados quantitativos completos.
 
-- https://www.gov.br/agricultura/pt-br/assuntos/noticias/2022/copy_of_mapa-reune-se-com-empresas-para-debater-ajustes-em-marco-legal-e-ampliar-financiamento-privado-ao-agro
+- https://www.gov.br/agricultura/pt-br/assuntos/noticias-2022/mapa-reune-se-com-empresas-para-debater-ajustes-em-marco-legal-e-ampliar-financiamento-privado-ao-agro
 - https://www.gov.br/agricultura/pt-br/assuntos/noticias/2023/mapa-se-reune-com-seguradoras-e-operadores-de-mercado-para-melhorar-ambiente-de-negocios
 
