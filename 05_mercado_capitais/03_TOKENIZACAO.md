@@ -10,5 +10,5 @@ Token, hash, NFT ou registro em blockchain não alteram a natureza jurídica da 
 
 Uma arquitetura prudente usa blockchain para integridade, timestamp e rastreabilidade documental, mantendo a CPR, a garantia e os registros nos sistemas juridicamente competentes.
 
-Fonte regulatória geral: https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2022/parecer-de-orientacao-cvm-40
+Fonte regulatória geral: https://conteudo.cvm.gov.br/legislacao/pareceres-orientacao/pare040.html
 
