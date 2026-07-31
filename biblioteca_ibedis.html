@@ -292,9 +292,7 @@
   <div class="sub">Estrutura organizada como um instrumento financeiro: lastro normativo, cláusulas estruturais, covenants operacionais, liquidez de mercado, garantias jurisprudenciais e camada CRVE/SBCE separada de CPR Verde e de PSA.</div>
 
   <div class="toolbar">
-    <button id="btnSelecionar">Selecionar pasta do projeto</button>
-    <button id="btnGithub" class="secundario">Carregar do repositório (GitHub Pages)</button>
-    <button id="btnAtualizar" class="secundario">Atualizar índice</button>
+    <button id="btnAtualizar">Atualizar índice</button>
     <input type="text" id="busca" placeholder="Buscar por título, tema, id, resumo...">
   </div>
 
@@ -316,7 +314,6 @@
     <span><span class="badge cronograma_regulatorio">cronog.</span> cronograma_regulatorio</span>
   </div>
   <div id="status">Verificando fonte de dados...</div>
-  <input type="file" id="inputPasta" webkitdirectory directory multiple style="display:none">
 </header>
 
 <main>
@@ -327,11 +324,10 @@
   <section id="conteudo">
     <div class="vazio">
       <p><strong>Como funciona</strong></p>
-      <p>Esta biblioteca lê os arquivos <code>.md</code> do RAG e monta o índice automaticamente, de duas formas possíveis:</p>
-      <p><strong>1. Pasta local:</strong> clique em "Selecionar pasta do projeto". Leitura 100% local no navegador, nada é enviado a servidor algum.</p>
-      <p><strong>2. Repositório publicado:</strong> se este arquivo estiver hospedado no mesmo GitHub/GitLab Pages do RAG (ao lado da pasta <code>00_INDICES/</code>), clique em "Carregar do repositório" para ler <code>00_INDICES/catalogo_documentos_index.json</code> diretamente via <code>fetch</code>, sem precisar selecionar pasta.</p>
-      <p>Cada documento é classificado automaticamente em <code>direito_vigente</code>, <code>jurisprudencia</code>, <code>orientacao_administrativa</code>, <code>interpretacao_tecnica</code>, <code>proposta_nao_vigente</code> ou <code>cronograma_regulatorio</code>, e agrupado por eixo conforme a subpasta de origem (00 a 10). O filtro temático "PSA" acima isola só os documentos de Pagamento por Serviços Ambientais, cruzando automaticamente qualquer <code>.md</code> novo que mencione PSA/PNPSA/PFPSA/CNPSA no título, resumo ou campo <code>temas</code> do front matter.</p>
-      <p><strong>Se você adicionar um novo <code>.md</code> na pasta e clicar em "Atualizar índice"</strong>, ele é lido, classificado e posicionado no eixo e no filtro temático corretos automaticamente.</p>
+      <p>Esta biblioteca carrega sozinha, assim que a página abre, o índice publicado em <code>00_INDICES/catalogo_documentos_index.json</code> deste mesmo repositório, via <code>fetch</code>. Não precisa selecionar nada.</p>
+      <p>Cada documento é classificado automaticamente em <code>direito_vigente</code>, <code>jurisprudencia</code>, <code>orientacao_administrativa</code>, <code>interpretacao_tecnica</code>, <code>proposta_nao_vigente</code> ou <code>cronograma_regulatorio</code>, e agrupado por eixo conforme a subpasta de origem (00 a 10). O filtro temático "PSA" acima isola só os documentos de Pagamento por Serviços Ambientais, cruzando automaticamente qualquer <code>.md</code> que mencione PSA/PNPSA/PFPSA/CNPSA no título, resumo ou campo <code>temas</code> do front matter.</p>
+      <p><strong>Se você adicionar um novo <code>.md</code> na pasta e fizer <code>git push</code></strong>, o GitHub Actions roda <code>gerar_site.py</code> sozinho, regenera o índice e republica o site. Quando isso terminar (1-2 minutos após o push), clique em "Atualizar índice" aqui para ver o documento novo já classificado e no eixo certo, sem precisar editar catálogo manualmente.</p>
+      <p>Cada card tem um link <strong>"Abrir arquivo original ↗"</strong> que leva ao Markdown completo do documento.</p>
     </div>
   </section>
 </main>
@@ -381,43 +377,6 @@
 
   let documentos = [];
   let filtroTemaAtual = "";
-  let origemAtual = ""; // "local" ou "repositorio"
-
-  function parseFrontMatter(texto){
-    const m = texto.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
-    let meta = {};
-    let corpo = texto;
-    if(m){
-      corpo = texto.slice(m[0].length);
-      m[1].split("\n").forEach(linha=>{
-        const idx = linha.indexOf(":");
-        if(idx > -1){
-          const chave = linha.slice(0, idx).trim();
-          let valor = linha.slice(idx+1).trim().replace(/^"(.*)"$/,"$1");
-          if(chave) meta[chave] = valor;
-        }
-      });
-    }
-    return {meta, corpo};
-  }
-
-  function extrairTitulo(corpo, fallback){
-    const m = corpo.match(/^#\s+(.+)$/m);
-    return m ? m[1].trim() : fallback;
-  }
-
-  function extrairResumo(corpo){
-    let bloco = corpo;
-    const chunk1 = corpo.match(/##\s*Chunk 1[^\n]*\n+([\s\S]*?)(\n##|\n#|$)/i);
-    if(chunk1){
-      bloco = chunk1[1];
-    }
-    const paragrafos = bloco.split(/\n\s*\n/).map(p=>p.replace(/^#.*$/gm,"").trim()).filter(p=>p.length>20);
-    let resumo = paragrafos[0] || bloco.trim().slice(0,320);
-    resumo = resumo.replace(/\s+/g," ").trim();
-    if(resumo.length > 420) resumo = resumo.slice(0,420) + "…";
-    return resumo || "(sem resumo extraível — verificar estrutura do arquivo)";
-  }
 
   function classificar(meta, titulo, resumo){
     const candidatos = [meta.status, meta.status_juridico, meta.tipo, meta.kind].filter(Boolean);
@@ -451,33 +410,6 @@
     return RE_PSA.test(d.titulo + " " + d.resumo + " " + d.temas + " " + d.caminho);
   }
 
-  async function processarArquivos(fileList){
-    documentos = [];
-    const arquivosMd = Array.from(fileList).filter(f => f.name.toLowerCase().endsWith(".md"));
-    document.getElementById("status").textContent = "Lendo " + arquivosMd.length + " arquivo(s) .md...";
-
-    for(const file of arquivosMd){
-      const texto = await file.text();
-      const caminho = file.webkitRelativePath || file.name;
-      montarDocumento(texto, caminho);
-    }
-    origemAtual = "local";
-    finalizarCarga(arquivosMd.length, "pasta local");
-  }
-
-  function montarDocumento(texto, caminho){
-    const {meta, corpo} = parseFrontMatter(texto);
-    const titulo = extrairTitulo(corpo, meta.id || meta.titulo || meta.title || caminho.split("/").pop().replace(/\.md$/,""));
-    const resumo = extrairResumo(corpo);
-    const classe = classificar(meta, titulo, resumo);
-    const eixo = eixoDoCaminho(caminho);
-    documentos.push({
-      id: meta.id || caminho,
-      titulo, resumo, classe, eixo, caminho, meta,
-      temas: meta.temas || meta.topics || ""
-    });
-  }
-
   async function carregarDoRepositorio(){
     document.getElementById("status").textContent = "Buscando 00_INDICES/catalogo_documentos_index.json...";
     try{
@@ -488,17 +420,18 @@
       for(const item of lista){
         const caminho = item.path || item.file || "";
         let titulo = item.title || caminho;
-        let resumo = item.summary || item.resumo || "(resumo não incluído no índice — abrir o arquivo original)";
-        const meta = {status: item.status, tipo: item.type, temas: (item.topics||[]).join ? (item.topics||[]).join(";") : (item.temas||"")};
+        let resumo = item.summary || item.resumo || "(resumo não incluído no índice — use o link \"Abrir arquivo original\" abaixo)";
+        const temasBrutos = item.topics ?? item.temas ?? "";
+        const temas = Array.isArray(temasBrutos) ? temasBrutos.join(";") : String(temasBrutos);
+        const meta = {status: item.status, tipo: item.type, temas};
         const classe = classificar(meta, titulo, resumo);
         const eixo = eixoDoCaminho(caminho);
         documentos.push({id: item.id || caminho, titulo, resumo, classe, eixo, caminho, meta, temas: meta.temas || ""});
       }
-      origemAtual = "repositorio";
       finalizarCarga(documentos.length, "repositório publicado (JSON)");
     }catch(err){
       document.getElementById("status").textContent =
-        "Não foi possível carregar 00_INDICES/catalogo_documentos_index.json (" + err.message + "). Este botão só funciona quando o HTML está publicado ao lado dessa pasta no GitHub/GitLab Pages. Use 'Selecionar pasta do projeto' para leitura local.";
+        "Não foi possível carregar 00_INDICES/catalogo_documentos_index.json (" + err.message + "). Confira se este HTML está publicado no GitHub Pages ao lado dessa pasta, e se o workflow de deploy já rodou.";
     }
   }
 
@@ -560,11 +493,9 @@
           </div>
           <div class="meta">id: ${escapeHtml(d.id)} ${d.temas ? " · temas: " + escapeHtml(d.temas) : ""}</div>
           <div class="resumo">${escapeHtml(d.resumo)}</div>
-          <div class="caminho">${
-            origemAtual === "repositorio"
-              ? '<a href="' + escapeHtml(d.caminho) + '" target="_blank" rel="noopener">Abrir arquivo original ↗</a> · ' + escapeHtml(d.caminho)
-              : escapeHtml(d.caminho) + ' (abrir arquivo original só funciona no modo "Carregar do repositório")'
-          }</div>
+          <div class="caminho">
+            <a href="${escapeHtml(d.caminho)}" target="_blank" rel="noopener">Abrir arquivo original ↗</a> · ${escapeHtml(d.caminho)}
+          </div>
         `;
         cont.appendChild(card);
       });
@@ -577,15 +508,7 @@
     return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   }
 
-  const inputPasta = document.getElementById("inputPasta");
-  document.getElementById("btnSelecionar").onclick = ()=> inputPasta.click();
-  document.getElementById("btnAtualizar").onclick = ()=> {
-    // se os documentos vieram do repositório (fetch), atualizar é buscar de novo;
-    // se vieram de pasta local, atualizar é reabrir o seletor.
-    if(origemAtual === "repositorio"){ carregarDoRepositorio(); } else { inputPasta.click(); }
-  };
-  document.getElementById("btnGithub").onclick = carregarDoRepositorio;
-  inputPasta.addEventListener("change", (ev)=> processarArquivos(ev.target.files));
+  document.getElementById("btnAtualizar").onclick = carregarDoRepositorio;
   document.getElementById("busca").addEventListener("input", (ev)=> renderizar(ev.target.value));
 
   document.querySelectorAll(".filtro").forEach(btn=>{
@@ -597,16 +520,16 @@
     });
   });
 
-  // Auto-carregamento: se este arquivo estiver servido via http(s) (ex.: GitHub/GitLab
-  // Pages), tenta buscar o índice do repositório sozinho, sem precisar clicar em nada.
-  // Em file:// (aberto direto do disco) o fetch de arquivo local é bloqueado pelo
-  // navegador por segurança, então nesse caso não tenta e pede para selecionar a pasta.
+  // Auto-carregamento: assim que a página abre, busca sozinho o índice do
+  // repositório publicado. Só funciona servido via http(s) — GitHub/GitLab
+  // Pages. Aberto direto do disco (file://) o navegador bloqueia esse fetch
+  // por segurança.
   if(location.protocol === "http:" || location.protocol === "https:"){
     document.getElementById("status").textContent = "Carregando automaticamente do repositório...";
     carregarDoRepositorio();
   } else {
     document.getElementById("status").textContent =
-      "Arquivo aberto localmente (file://): o carregamento automático só funciona quando publicado em http/https (GitHub/GitLab Pages). Use \"Selecionar pasta do projeto\".";
+      "Arquivo aberto localmente (file://): esta versão só funciona publicada em http/https (GitHub/GitLab Pages), porque lê o índice diretamente do repositório publicado.";
   }
 })();
 </script>
